@@ -14,7 +14,7 @@ const float L = 70.f; // 일정한 거리 L을 상수로 정의
 
 // 라이다 데이터를 처리하는 콜백 함수
 static void scanCb(const sensor_msgs::msg::LaserScan::SharedPtr scan, rclcpp::Publisher<geometry_msgs::msg::Vector3>::SharedPtr error_publisher) {
-  int count = scan->scan_time / scan->time_increment;
+  int count = scan->scan_time / scan->time_increment; // 라이다 스캔 데이터의 수를 계산
   printf("[SLLIDAR INFO]: I heard a laser scan %s[%d]:\n", scan->header.frame_id.c_str(), count);
   printf("[SLLIDAR INFO]: angle_range : [%f, %f]\n", RAD2DEG(scan->angle_min),
          RAD2DEG(scan->angle_max));
